@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="logo">
+  <img src="/logo.png">
+</div>
+<form action="/addPost" method="post">
+  <textarea name="postContent" placeholder="Wpisz tutaj swój post"></textarea><br>
+  <input type="text" class="nick" name="username" placeholder="Twój pseudonim">
+  <button type="submit" class="post">Dodaj post</button>
+</form>
+<div id="login" style="text-align: right;">
+    <a href="/login" class="login">Zaloguj</a>
+    <a href="/logout" class="login">Wyloguj</a>
+</div>
+<div id="posts">
+  <h2>Wpisy na forum:</h2>
+  <ul>
+    <th:block th:each="post : ${forumPosts}">
+      <div>
+        <span class="user" th:text="${post.user.username}"></span>:
+        <span class="content" th:text="${post.content}"></span>
+        <span class="content" th:text="${post.id}" style="display: none;"></span>
+        <a th:href="@{'/delete/'+ ${post.id}}" class="delete">Delete</a>
+       </div>
+     </th:block>
+   </ul>
+ </div>
+ </body>
+ </html>

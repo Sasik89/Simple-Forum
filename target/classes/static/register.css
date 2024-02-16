@@ -1,0 +1,22 @@
+.login-register {
+        font-size: 20px;
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 15px;
+        color: black;
+        display: center;
+        margin: 5px auto;
+        padding: 5px 10px;
+        transition: border, color, background-color 1s;
+        cursor: pointer;
+        text-align: center;
+
+}
+.login-register:hover {
+    border: 2px solid red;
+    background-color: red;
+}
+
+#content {
+    text-align: center;
+}

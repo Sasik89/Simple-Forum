@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="logo">
+  <img src="/logo.png">
+</div>
+<div id="login" style="text-align: center; padding: 30px;">
+  <a href="/login" class="login">Zaloguj</a>
+  <a href="/logout" class="login">Wyloguj</a>
+  <a href="/register" class="login">Zarejestruj</a>
+</div>
+<div id="content">
+  <form method="post" th:action="@{/login}">
+    <input type="text" placeholder="Nick" class="login" name="username" id="username" style="text-align: center;"><br>
+    <input type="password" placeholder="Hasło" class="login" name="password" id="password" style="text-align: center;"><br>
+    <input type="submit" value="Zaloguj" class="login" style="text-align: center;">
+  </form>
+</div>
+</body>
+</html>
