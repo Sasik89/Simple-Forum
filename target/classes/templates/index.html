@@ -8,26 +8,32 @@
 </head>
 <body>
 <div id="logo">
-  <img src="/logo.png">
+    <a href="/">
+        <img src="/logo.png" alt="Strona Główna">
+    </a>
 </div>
-<form action="/addPost" method="post">
+<form action="/addPost" method="post">`
   <textarea name="postContent" placeholder="Wpisz tutaj swój post"></textarea><br>
-  <input type="text" class="nick" name="username" placeholder="Twój pseudonim">
-  <button type="submit" class="post">Dodaj post</button>
+  <input type="text" class="nick" name="username" th:if="${sessionData.getUsername() != null}" th:value="${sessionData.getUsername().getUsername()}" readonly >
+  <button type="submit" class="post" th:if="${sessionData.getUsername() != null}">Dodaj post</button>
 </form>
-<div id="login" style="text-align: right;">
-    <a href="/login" class="login">Zaloguj</a>
-    <a href="/logout" class="login">Wyloguj</a>
+<div id="login" style="text-align: center;">
+    <a href="/login" class="login" th:if="${sessionData.getUsername() == null}">Zaloguj</a>
+    <a href="/logout" class="login" th:if="${sessionData.getUsername() != null}">Wyloguj</a>
 </div>
+<form action="/filter" method="post" id="filter">
+    <input type="text" placeholder="Szukaj" class="login" name="pattern" style="display: inline-block, text-align: center" th:value="${sessionData.getPatter()}">
+    <input type="submit" value="OK" class="login">
+</form>
 <div id="posts">
   <h2>Wpisy na forum:</h2>
   <ul>
-    <th:block th:each="post : ${forumPosts}">
+    <th:block th:each="post : ${forumPosts}" id="wpisy-na-forum">
       <div>
         <span class="user" th:text="${post.user.username}"></span>:
         <span class="content" th:text="${post.content}"></span>
         <span class="content" th:text="${post.id}" style="display: none;"></span>
-        <a th:href="@{'/delete/'+ ${post.id}}" class="delete">Delete</a>
+        <a th:href="@{'/delete/'+ ${post.id}}"  id="delete">Usuń wpis</a>
        </div>
      </th:block>
    </ul>

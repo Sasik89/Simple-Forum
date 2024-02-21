@@ -10,4 +10,5 @@ public interface IUsersDAO {
 
     public void addUser(String username, String password);
     public boolean logged(String username, String password);
+    public void logout();
 }

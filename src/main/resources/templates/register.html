@@ -9,12 +9,13 @@
 </head>
 <body>
 <div id="logo">
-  <img src="/logo.png">
+  <a href="/">
+    <img src="/logo.png" alt="Strona Główna">
+  </a>
 </div>
 <div id="login" style="text-align: center; padding: 30px;">
-  <a href="/login" class="login">Zaloguj</a>
-  <a href="/logout" class="login">Wyloguj</a>
-  <a href="/register" class="login">Zarejestruj</a>
+  <a href="/login" class="login" th:if="${sessionData.getUsername() == null}">Zaloguj</a>
+  <a href="/logout" class="login" th:if="${sessionData.getUsername() == null}">Wyloguj</a>
 </div>
 <div id="content">
   <form method="post" th:action="@{/register}">

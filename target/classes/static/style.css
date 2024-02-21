@@ -62,15 +62,19 @@ button {
 
 #posts ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10;
+    margin: 5px 5px 5px 5px;
     width: 890px;
     font-size: 30px;
+    border: 1px solid #e8edea;
+    background-color: #e8edea;
+    border-radius: 2px;
 }
 
 #posts ul li {
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-bottom: 5px;
+    background-color: #f4f4f4 !important;
+    padding: 10px !important;
+    margin-bottom: 5px !important;
 }
 
 .login{
@@ -80,12 +84,24 @@ button {
         border-radius: 15px;
         color: black;
         display: center;
-        margin: 5px auto;
-        padding: 5px 10px;
+        margin: 5px 15px;
+        padding: 5px 20px;
         transition: border, color, background-color 1s;
         cursor: pointer;
-        text-align: center;
 }
-#login{
-      margin: 5px auto;
+
+#filter, #login {
+margin: 10px auto;
+text-align: center;
+
+}
+
+#delete{
+        font-size: 15px !important;
+        text-decoration: none !important;
+        border: 2px solid black !important;
+        border-radius: 5px !important;
+        color: black !important;
+        float: right !important;
+        padding: 5px;
 }

@@ -8,14 +8,16 @@
 </head>
 <body>
 <div id="logo">
-  <img src="/logo.png">
+  <a href="/">
+  <img src="/logo.png" alt="Strona Główna">
+  </a>
 </div>
-<div id="login" style="text-align: center; padding: 30px;">
-  <a href="/login" class="login">Zaloguj</a>
-  <a href="/logout" class="login">Wyloguj</a>
+<div id="login" style="text-align: center; margin: 10px, 10px; padding: 30px;">
+  <a href="/login" class="login" th:if="${sessionData.getUsername() != null}">Zaloguj</a>
+  <a href="/logout" class="login" th:if="${sessionData.getUsername() != null}">Wyloguj</a>
   <a href="/register" class="login">Zarejestruj</a>
 </div>
-<div id="content">
+<div id="content" style="text-align: center;">
   <form method="post" th:action="@{/login}">
     <input type="text" placeholder="Nick" class="login" name="username" id="username" style="text-align: center;"><br>
     <input type="password" placeholder="Hasło" class="login" name="password" id="password" style="text-align: center;"><br>

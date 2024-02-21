@@ -10,6 +10,5 @@ public interface IPostsDAO {
     public List<Post> getForumPosts();
     public void deletePost(int id);
 
-
 }
 

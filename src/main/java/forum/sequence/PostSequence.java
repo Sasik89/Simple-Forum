@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 public class PostSequence {
 
     private int id = 0;
-
     public int getId(){
         return ++id;
     }
